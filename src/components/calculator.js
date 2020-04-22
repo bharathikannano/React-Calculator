@@ -30,27 +30,43 @@ onClearAllPressed(){
   });
 }
   render(){
-    let numberkey =[], operators =[];
+    let numberkey =[], operators =[], j=0, k=".";
 
-    for(let i =0; i < 10; i++) {
-      numberkey.push(<Keybutton text={i} key={i} onKeyPressed={this.onKeyPressed} />)
+    for(let i =1; i < 10; i++) {
+      numberkey.push(<Keybutton text={i} key={i} onKeyPressed={this.onKeyPressed} className="key-pad num-key" />)
     }
 
     for(let i of ['+', '-', '/', '%']){
-      operators.push(<Keybutton text={i} key={i} onKeyPressed={this.onKeyPressed} />)
+      operators.push(<Keybutton text={i} key={i} onKeyPressed={this.onKeyPressed} className="oper-key key-pad" />)
     }
 
     return(
-      <div>
+      <React.Fragment>
         <DisplayWindow expression={this.state.expression} />
-        {numberkey}
-        {operators}
+        <div className="key-window">
+          <div className="calc">
+            <div className="number-key">
+              {numberkey}
+              <span className="bind-key">
+                <Keybutton text={j} key={j} onKeyPressed={this.onKeyPressed} className="num-pad-0 key-pad num-key" />
+                <Keybutton text={k} key={k} onKeyPressed={this.onKeyPressed} className="num-pad-0 key-pad num-key" />
+                
+              </span>
+            </div>
+            <div className="operators-key">
+              {operators}
+            </div>
+          </div>
+            <div className="memory-key">
+              <span className="bind-key">
+              <button onClick={this.onDeletePressed.bind(this)} className="key-pad mem-key">C</button>
+              <button onClick={this.onClearAllPressed.bind(this)} className="key-pad mem-key">CA</button>
+              </span>
+              <button onClick={this.onEvlPressed.bind(this)} className="key-pad oper-key">=</button>
+            </div>
+        </div>
 
-        <button onClick={this.onEvlPressed.bind(this)}>=</button>
-        <button onClick={this.onDeletePressed.bind(this)}>C</button>
-        <button onClick={this.onClearAllPressed.bind(this)}>CA</button>
-
-      </div>
+      </React.Fragment>
     );
   }
 }

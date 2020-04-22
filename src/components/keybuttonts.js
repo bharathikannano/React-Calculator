@@ -11,7 +11,7 @@ onKeyPressed(){
 }
 render(){
 return(
-  <button onClick={() => this.onKeyPressed()}>{this.props.text}</button>
+  <button onClick={() => this.onKeyPressed()} className = {this.props.className}>{this.props.text}</button>
 );
 }
 

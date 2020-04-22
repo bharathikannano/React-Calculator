@@ -4,30 +4,52 @@
   "private": true,
   "dependencies": {
     "mdbreact": "^4.6.1",
-    "node-sass-chokidar": "^1.3.0",
     "npm": "^6.1.0",
-    "npm-run-all": "^4.1.2",
-    "prop-types": "^15.6.1",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.4"
+    "npm-run-all": "^4.1.5",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1"
+  },
+  "watch": {
+    "build": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "js,jsx,scss,css"
+    }
   },
   "scripts": {
     "start-js": "react-scripts start",
-    "start": "npm-run-all -p watch-css start-js",
+    "start": "npm-run-all -p start-js scss",
     "build-js": "react-scripts build",
     "build": "npm-run-all build-css build-js",
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "dev": "lite-server"
+    "dev": "lite-server",
+    "watch": "npm-watch",
+    "scss": "node-sass --watch ./src/scss -o c./src/css"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-react": "^6.24.1",
     "lite-server": "^2.3.0",
-    "node-sass": "^4.9.0"
+    "node-sass": "^4.9.0",
+    "npm-watch": "0.6.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

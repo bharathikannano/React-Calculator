@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+#root {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    .key-window{
+        height: 50%;
+    display: flex;
+    flex-flow: column;
+    margin-top: 35px;
+    }
+}
+
+.input-field {
+    display: block;
+    min-height: 50%;
+    position: relative;
+    width: 100%;
+    input {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        font-size: 6rem;
+        right: 0;
+        text-align: right;
+        border:none;
+        &:focus{
+            border:none;
+            outline: none;
+        }
+    }
+}
+.key-pad{
+    flex: 1 0 auto;
+    min-height: 60px;
+    font-size: 2rem;
+    color:#fff;
+    border: none;
+    &:focus{
+        border:none;
+        outline: none;
+    }
+
+    
+
+}
+.bind-key{
+    display: flex;
+    width: 100%;
+}
+.memory-key{
+    display: flex;
+    height: auto;
+    .bind-key{
+        width: 75%;
+    }
+   
+}
+.calc{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    height: auto;
+    
+
+    .number-key{
+        display: flex;
+        flex-flow: row wrap;
+        width:75%;
+        .key-pad{
+            width: 33%;
+           
+        }
+        
+    }
+    .operators-key{
+        width: 25%;
+        display: flex;
+        flex-flow: column nowrap;
+    }
+}
+.num-key{
+    background-color:#969393
+}
+.oper-key{
+    background-color: #f59f00;
+}
+.mem-key{
+    background-color: #0d0801b5;
+    width: 24%;
+    
+}
